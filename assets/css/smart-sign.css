@@ -5,6 +5,7 @@
 	Solid State by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	line opacity was changed from 0.125 to 0.029
 */
 
 html, body, div, span, applet, object,
@@ -209,7 +210,7 @@ input, select, textarea {
 				-ms-transition: background-color 0.2s ease-in-out;
 				transition: background-color 0.2s ease-in-out;
 				border-radius: 100%;
-				border: solid 2px rgba(255, 255, 255, 0.125);
+				border: solid 2px rgba(255, 255, 255, 0.29);
 				content: '\f105';
 				display: inline-block;
 				font-size: 1.25em;
@@ -264,7 +265,7 @@ input, select, textarea {
 
 		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
 			padding-bottom: 1em;
-			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			border-bottom: solid 2px rgba(255, 255, 255, 0.29);
 		}
 
 	h2 {
@@ -312,7 +313,7 @@ input, select, textarea {
 	}
 
 	blockquote {
-		border-left: solid 4px rgba(255, 255, 255, 0.125);
+		border-left: solid 4px rgba(255, 255, 255, 0.29);
 		font-style: italic;
 		margin: 0 0 2em 0;
 		padding: 0.5em 0 0.5em 2em;
@@ -321,7 +322,7 @@ input, select, textarea {
 	code {
 		background: rgba(255, 255, 255, 0.025);
 		border-radius: 5px;
-		border: solid 2px rgba(255, 255, 255, 0.125);
+		border: solid 2px rgba(255, 255, 255, 0.29);
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
 		margin: 0 0.25em;
@@ -344,7 +345,7 @@ input, select, textarea {
 
 	hr {
 		border: 0;
-		border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+		border-bottom: solid 2px rgba(255, 255, 255, 0.29);
 		margin: 2.5em 0;
 	}
 
@@ -2181,7 +2182,7 @@ input, select, textarea {
 		background: rgba(255, 255, 255, 0.025);
 		border-radius: 5px;
 		border: none;
-		border: solid 2px rgba(255, 255, 255, 0.125);
+		border: solid 2px rgba(255, 255, 255, 0.29);
 		color: inherit;
 		display: block;
 		outline: 0;
@@ -2209,7 +2210,7 @@ input, select, textarea {
 		}
 
 	select {
-		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.125)' /%3E%3C/svg%3E");
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.29)' /%3E%3C/svg%3E");
 		background-size: 1.25rem;
 		background-repeat: no-repeat;
 		background-position: calc(100% - 1rem) center;
@@ -2286,7 +2287,7 @@ input, select, textarea {
 			input[type="radio"] + label:before {
 				background: rgba(255, 255, 255, 0.025);
 				border-radius: 5px;
-				border: solid 2px rgba(255, 255, 255, 0.125);
+				border: solid 2px rgba(255, 255, 255, 0.29);
 				content: '';
 				display: inline-block;
 				height: 1.65em;
@@ -2343,7 +2344,7 @@ input, select, textarea {
 
 	.box {
 		border-radius: 5px;
-		border: solid 2px rgba(255, 255, 255, 0.125);
+		border: solid 2px rgba(255, 255, 255, 0.29);
 		margin-bottom: 2em;
 		padding: 1.5em;
         text-align: center;
@@ -2464,7 +2465,7 @@ input, select, textarea {
 		}
 
 			ul.alt li {
-				border-top: solid 1px rgba(255, 255, 255, 0.125);
+				border-top: solid 1px rgba(255, 255, 255, 0.29);
 				padding: 0.5em 0;
 			}
 
@@ -2655,7 +2656,7 @@ input, select, textarea {
 
 			ul.contact li:before {
 				border-radius: 100%;
-				border: solid 2px rgba(255, 255, 255, 0.125);
+				border: solid 2px rgba(255, 255, 255, 0.29);
 				display: inline-block;
 				font-size: 0.8em;
 				height: 2.5em;
@@ -2762,7 +2763,7 @@ input, select, textarea {
 	}
 
 		table tbody tr {
-			border: solid 1px rgba(255, 255, 255, 0.125);
+			border: solid 1px rgba(255, 255, 255, 0.29);
 			border-left: 0;
 			border-right: 0;
 		}
@@ -2784,11 +2785,11 @@ input, select, textarea {
 		}
 
 		table thead {
-			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			border-bottom: solid 2px rgba(255, 255, 255, 0.29);
 		}
 
 		table tfoot {
-			border-top: solid 2px rgba(255, 255, 255, 0.125);
+			border-top: solid 2px rgba(255, 255, 255, 0.29);
 		}
 
 		table.alt {
@@ -2796,7 +2797,7 @@ input, select, textarea {
 		}
 
 			table.alt tbody tr td {
-				border: solid 1px rgba(255, 255, 255, 0.125);
+				border: solid 1px rgba(255, 255, 255, 0.29);
 				border-left-width: 0;
 				border-top-width: 0;
 			}
@@ -2835,7 +2836,7 @@ input, select, textarea {
 		background-color: transparent;
 		border-radius: 5px;
 		border: 0;
-		box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.125);
+		box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.29);
 		color: #ffffff !important;
 		cursor: pointer;
 		display: inline-block;
@@ -3103,7 +3104,7 @@ input, select, textarea {
 					-ms-transition: background-color 0.2s ease-in-out;
 					transition: background-color 0.2s ease-in-out;
 					border-radius: 5px;
-					box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.125);
+					box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.29);
 					padding: 0 1.35em;
 				}
 
@@ -3255,7 +3256,7 @@ input, select, textarea {
 		}
 
 		#menu h2 {
-			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			border-bottom: solid 2px rgba(255, 255, 255, 0.29);
 			padding-bottom: 1em;
 		}
 
@@ -3365,7 +3366,7 @@ input, select, textarea {
 
 			#banner .logo .icon {
 				border-radius: 100%;
-				border: solid 2px rgba(255, 255, 255, 0.125);
+				border: solid 2px rgba(255, 255, 255, 0.29);
 				cursor: default;
 				display: inline-block;
 				font-size: 2em;
@@ -3393,7 +3394,7 @@ input, select, textarea {
 			-ms-filter: blur(0);
 			filter: blur(0);
 			opacity: 1;
-			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			border-bottom: solid 2px rgba(255, 255, 255, 0.29);
 			font-size: 2.25em;
 			margin-bottom: 0.8em;
 			padding-bottom: 0.4em;
@@ -3520,7 +3521,7 @@ input, select, textarea {
 		}
 
 		#wrapper > header h2 {
-			border-bottom: solid 2px rgba(255, 255, 255, 0.125);
+			border-bottom: solid 2px rgba(255, 255, 255, 0.29);
 			font-size: 2em;
 			margin-bottom: 0.8em;
 			padding-bottom: 0.4em;
@@ -3996,7 +3997,7 @@ input, select, textarea {
 		}
 
 		#footer .inner .copyright {
-			border-top: solid 2px rgba(255, 255, 255, 0.125);
+			border-top: solid 2px rgba(255, 255, 255, 0.29);
 			list-style: none;
 			margin: 4em 0 2em 0;
 			padding: 2em 0 0 0;
@@ -4004,7 +4005,7 @@ input, select, textarea {
 		}
 
 			#footer .inner .copyright li {
-				border-left: solid 2px rgba(255, 255, 255, 0.125);
+				border-left: solid 2px rgba(255, 255, 255, 0.29);
 				color: rgba(255, 255, 255, 0.35);
 				display: inline-block;
 				font-size: 0.9em;
