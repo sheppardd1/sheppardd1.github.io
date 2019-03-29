@@ -71,29 +71,31 @@ function generate() {
                     if (row == 0 && style_first_row == 'b') {     //apply boldface to first row if user chooses styled first row
                         table += "\\textbf{ ";
                     }
-                    else if (row == 0 && style_first_row == 'i') {     //apply boldface to first row if user chooses styled first row
+                    else if (row == 0 && style_first_row == 'i') {     //apply italics to first row if user chooses styled first row
                         table += "\\textit{ ";
                     }
-                    else if (row == 0 && style_first_row == 'u') {     //apply boldface to first row if user chooses styled first row
+                    else if (row == 0 && style_first_row == 'u') {     //apply underline to first row if user chooses styled first row
                         table += "\\underline{ ";
                     }
 
 
-                    if (style_first_col == 'b' && (style_first_row != style_first_col || row != 0)) {     //apply boldface to first row if user chooses styled first row
+                    if (style_first_col == 'b' && (style_first_row != style_first_col || row != 0)) {     //apply boldface to first col if user chooses styled first row
                         table += "\\textbf{ ";
                     }
-                    else if (style_first_col == 'i' && (style_first_row != style_first_col || row != 0)) {     //apply boldface to first row if user chooses styled first row
+                    else if (style_first_col == 'i' && (style_first_row != style_first_col || row != 0)) {     //apply italics to first col if user chooses styled first row
                         table += "\\textit{ ";
                     }
-                    else if (style_first_col == 'u' && (style_first_row != style_first_col || row != 0)) {     //apply boldface to first row if user chooses styled first row
+                    else if (style_first_col == 'u' && (style_first_row != style_first_col || row != 0)) {     //apply underline to first col if user chooses styled first row
                         table += "\\underline{ ";
                     }
 
                     while (x.charAt(i) != '\n') {       //read in input until end of the line
-                        if (x.charAt(i) != '\t' && x.charAt(i) != '<' && x.charAt(i) != '>' && x.charAt(i) != '&') {      //if not tab, put char into table
+                        //if not tab or special character, put char into table:
+                        if (x.charAt(i) != '\t' && x.charAt(i) != '<' && x.charAt(i) != '>' && x.charAt(i) != '&' && x.charAt(i) != '%') {
                             table += x.charAt(i);
                         }
-                        else if (x.charAt(i) == '<') {  //need to indirectly print out '<' and '>' to prevent XSS, etc.
+                        // if character has a special function in LaTeX or HTML, prevent it from causing problems:
+                        else if (x.charAt(i) == '<') {   //need to indirectly print out '<' and '>' to prevent XSS, etc.
                             table += "&lt;";
                         }
                         else if (x.charAt(i) == '>') {
@@ -102,8 +104,11 @@ function generate() {
                         else if (x.charAt(i) == '&'){   // since'&' is a keyword in LaTeX, need to put a backslash in front of it it it appears in excel data
                             table += "\\\&";
                         }
-                        else {                          //if tab, add LaTeX col divider ("&") (and boldface if applicable)
-
+                        else if (x.charAt(i) == '%'){   // since'%' is a keyword in LaTeX, need to put a backslash in front of it it it appears in excel data
+                            table += "\\\%";
+                        }
+                        //if tab, add LaTeX col divider ("&") (and boldface if applicable)
+                        else {
                             //if on first row && need to style row and col && row and col get different styles and on first col
                             if (row == 0 && style_first_col != 'r' && style_first_row != 'r' && (style_first_col != style_first_row) && col == 0) {
                                 table += " } }";
@@ -112,7 +117,7 @@ function generate() {
                                 table += " }";
                             }
 
-                            table += " & ";
+                            table += " & ";     //latex divider for columns
 
                             if (row == 0 && style_first_row== 'b') {
                                 table += "\\textbf{ ";
