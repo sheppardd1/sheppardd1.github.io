@@ -7,6 +7,8 @@ function generate() {
         numcols_max = 0;
         var row = 0;
         var x = $('textarea[name=excel]').val();    //x is the user's pasted input
+        var caption = $('textarea[name=caption_input]').val();    //x is the user's pasted input
+        var  label = $('textarea[name=label_input]').val();    //x is the user's pasted input
         var e = document.getElementById("select_alignment");   //get value from select box for alignment
         var align = e.options[e.selectedIndex].value;   //align is either r, c, or l
         e = document.getElementById("select_first_row");   //get value from select box for afirst row style
@@ -36,8 +38,21 @@ function generate() {
                 }
             }
 
-            table += "\\begin{table}[h]\n\\centering\n";
-            table += "\\caption{}" + "\n\\label{}\n";
+            table += "\\begin{table}[h]\n\\centering\n";    //start table
+
+            // add caption and label
+            if(caption.charAt(0) != ''){
+                table += "\\caption{" + check_text(caption) + "}\n";
+            }else{
+                table += "\\caption{}\n";
+            }
+            if (label.charAt(0) != '') {
+                table += "\\label{" + check_text(label) + "}\n"
+            }else {
+                table += "\\label{}\n";
+            }
+
+            //finish beginning of table
             table += "\\begin{tabular}{";
             if (dividers == 'c' || dividers == 'b') {
                 table += '|';
@@ -63,6 +78,8 @@ function generate() {
                 }
             }
 
+            x = check_text(x);                   // account for special characters that are keywords in LaTeX or HTML
+
             var i = 0;                                  // index of x
             do {                                        //do conversion for each row until end of document
                 var col = 0;                            // col is compared to the number of columns
@@ -78,7 +95,6 @@ function generate() {
                         table += "\\underline{ ";
                     }
 
-
                     if (style_first_col == 'b' && (style_first_row != style_first_col || row != 0)) {     //apply boldface to first col if user chooses styled first row
                         table += "\\textbf{ ";
                     }
@@ -90,22 +106,9 @@ function generate() {
                     }
 
                     while (x.charAt(i) != '\n') {       //read in input until end of the line
-                        //if not tab or special character, put char into table:
-                        if (x.charAt(i) != '\t' && x.charAt(i) != '<' && x.charAt(i) != '>' && x.charAt(i) != '&' && x.charAt(i) != '%') {
+                        //if not tab, put char into table:
+                        if (x.charAt(i) != '\t') {
                             table += x.charAt(i);
-                        }
-                        // if character has a special function in LaTeX or HTML, prevent it from causing problems:
-                        else if (x.charAt(i) == '<') {   //need to indirectly print out '<' and '>' to prevent XSS, etc.
-                            table += "&lt;";
-                        }
-                        else if (x.charAt(i) == '>') {
-                            table += "&gt;";
-                        }
-                        else if (x.charAt(i) == '&'){   // since'&' is a keyword in LaTeX, need to put a backslash in front of it it it appears in excel data
-                            table += "\\\&";
-                        }
-                        else if (x.charAt(i) == '%'){   // since'%' is a keyword in LaTeX, need to put a backslash in front of it it it appears in excel data
-                            table += "\\\%";
                         }
                         //if tab, add LaTeX col divider ("&") (and boldface if applicable)
                         else {
@@ -174,3 +177,26 @@ function generate() {
         }
 
     }
+
+function check_text(text){  //account for LaTeX and HTML keywords
+    var new_text = "";                         // new string
+    for(j = 0; j < text.length; j++){       // check each char in the inputted string
+        switch(text.charAt(j)){
+            case '&':
+                new_text += "\\&";
+                break;
+            case '%':
+                new_text += "\\%";
+                break;
+            case '<':
+                new_text += "$&lt;$";
+                break;
+            case '>':
+                new_text += "$&gt;$";
+                break;
+            default:                                // if not keyword, leave as is
+                new_text += text.charAt(j);
+        }
+    }
+    return new_text;
+}

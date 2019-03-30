@@ -80,11 +80,36 @@
                                         <p><b>LaTeX table code will appear below</b></p>
                                         <div id="excel_table"></div>
                                         <pre><code id="output" style="height:300px"></code></pre>
-                                        <button style="width:300px" id="button_copy" onclick="change('copied'); copyToClipboard('#output')">Copy to Clipboard</button>
+                                        <button style="width:300px" id="button_copy" onclick="generate(); change('copied'); copyToClipboard('#output')">Copy to Clipboard</button>
                                     </div>
                                     <div class="col-10 col-10-medium">
                                         <hr /><h2><b>Options</b></h2>
                                         <table class="formcontrols">
+
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        Add A Caption
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <textarea placeholder="Optional" id="caption_input" name="caption_input"
+                                                    style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        Add A Label
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <textarea placeholder="Optional" id="label_input" name="label_input"
+                                                    style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
+                                                </td>
+                                            </tr>
+
                                             <tr>
                                                 <td>
                                                     <label>
@@ -164,7 +189,7 @@
                             <ul class="copyright">
                                 <li><font color="white">Webpage Design: <a href="http://html5up.net">HTML5 UP</font></li>
                                 <li><font color="white">Images: <a href="http://www.pixabay.com">pixabay</a></font></li>
-                                <li><font color="white">Last Updated: 29 March 2019</font></li>
+                                <li><font color="white">Last Updated: 30 March 2019</font></li>
                             </ul>
 						</div>
 					</section>
@@ -184,12 +209,14 @@
 
             <script>
                 function clearText(choice) {
-                    if (choice == "output") {
+                    if (choice == "both") {
                         document.getElementById("output").innerHTML = '';
-                    } else if (choice == "excel") {
-                    document.getElementById("excel").value = '';
-                    } else if (choice == "both") {
+                        document.getElementById("excel").value = '';
+                        document.getElementById("caption_input").value = '';
+                        document.getElementById("label_input").value = '';
+                    } else if (choice == "output") {    //not used in current implementation
                         document.getElementById("output").innerHTML = '';
+                    } else if (choice == "excel") {     //not used in current implementation
                         document.getElementById("excel").value = '';
                     }
                 }
