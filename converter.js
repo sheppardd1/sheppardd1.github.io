@@ -17,6 +17,8 @@ function generate() {
         var style_first_col= e.options[e.selectedIndex].value;   //align is either r, b, u, or i (regular, bold, underline, italics)
         e = document.getElementById("select_dividers");   //get value from select box for afirst row style
         var dividers = e.options[e.selectedIndex].value;   //align is either b, r, c, or n (both, rows only, cols only, or none)
+        e = document.getElementById("select_slash");   //get value from select box for afirst row style
+        var slash = e.options[e.selectedIndex].value;   //align is either b, r, c, or n (both, rows only, cols only, or none)
 
         if (x.charAt(0) != '') {    //ensure textarea is not empty first
 
@@ -42,12 +44,12 @@ function generate() {
 
             // add caption and label
             if(caption.charAt(0) != ''){
-                table += "\\caption{" + check_text(caption) + "}\n";
+                table += "\\caption{" + check_text(caption, slash) + "}\n";
             }else{
                 table += "\\caption{}\n";
             }
             if (label.charAt(0) != '') {
-                table += "\\label{" + check_text(label) + "}\n"
+                table += "\\label{" + check_text(label, slash) + "}\n"
             }else {
                 table += "\\label{}\n";
             }
@@ -78,7 +80,7 @@ function generate() {
                 }
             }
 
-            x = check_text(x);                   // account for special characters that are keywords in LaTeX or HTML
+            x = check_text(x, slash);                   // account for special characters that are keywords in LaTeX or HTML
 
             var i = 0;                                  // index of x
             do {                                        //do conversion for each row until end of document
@@ -178,7 +180,7 @@ function generate() {
 
     }
 
-function check_text(text){  //account for LaTeX and HTML keywords
+function check_text(text, slash){  //account for LaTeX and HTML keywords
     var new_text = "";                         // new string
     for(j = 0; j < text.length; j++){       // check each char in the inputted string
         switch(text.charAt(j)){
@@ -193,6 +195,16 @@ function check_text(text){  //account for LaTeX and HTML keywords
                 break;
             case '>':
                 new_text += "$&gt;$";
+                break;
+            case '$':
+                new_text += "\\$";
+                break;
+            case '\\':
+                if(slash == 'Y'){
+                    new_text += "\\\\";
+                }else {
+                    new_text += text.charAt(j);
+                }
                 break;
             default:                                // if not keyword, leave as is
                 new_text += text.charAt(j);
