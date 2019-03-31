@@ -40,9 +40,10 @@
 				.dropbtn {
 				  background-color: transparent;
 				  color: white;
-				  padding: 15px 20px 0px 0px;
+				  padding: 14px 20px 14px 20px;
 				  font-size: 26px;
 				  border: none;
+				  outline: none;
 				}
 
 				li a:hover, .dropup:hover .dropbtn {
@@ -60,7 +61,7 @@
 				  position: absolute;
 				  background-color: white;
 				  min-width: 160px;
-				  bottom: 30px;
+				  bottom: 50px;
 				  z-index: 1;
 				}
 
@@ -69,14 +70,15 @@
 				  padding: 12px 16px;
 				  text-decoration: none;
 				  display: block;
+				  font-size: 20px;
 				}
 
 				.dropup-content a:hover {background-color: #ccc}
 
-				.dropup:hover .dropup-content {
+				/*.dropup:hover .dropup-content {
 				  display: block;
 				  font-size: 20px;
-				}
+				}*/
 
 				.dropup:hover .dropbtn {
 				  background-color: transparent;
@@ -199,8 +201,8 @@
 						<section>
 							<ul2>
 								<li class="dropup">
-									<button class="dropbtn"><span class="icon fa-bars"></span></button>
-									<div class="dropup-content">
+									<button onclick="hideFunction();" class="dropbtn"><span class="icon fa-bars"></span></button>
+									<div id="menu" class="dropup-content">
 										<a href="../index.html">Home</a>
 										<a href="../resume.html">R&eacutesum&eacute</a>
 										<a href="../index.html#projects">Projects</a>
@@ -229,6 +231,19 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				function hideFunction() {
+  				var x = document.getElementById("menu");
+  				if (x.style.display === "block") {
+    				x.style.display = "none";
+  				} else {
+    				x.style.display = "block";
+  				}
+				}
+			</script>
+
+			/*credit to https://www.w3schools.com/w3css/w3css_dropdowns.asp for the clickable dropdown*/
 
 
 </html>
