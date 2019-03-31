@@ -6,6 +6,85 @@
 -->
 <html>
 	<head>
+		<style>
+			ul2 {
+				z-index : 1;
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0px;
+			  overflow: hidden;
+			  background-color: transparent;
+			  font-size: 26px;
+			}
+
+			li {
+			  float: left;
+			}
+
+			li a, .dropbtn {
+			  display: inline-block;
+			  color: white;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			}
+
+			li a:hover, .dropdown:hover .dropbtn {
+			  background-color: transparent;
+			  color: #2ca093;
+			}
+
+			</style>
+
+			<style>
+				.dropbtn {
+				  background-color: transparent;
+				  color: white;
+				  padding: 14px 20px 14px 0px;
+				  font-size: 26px;
+				  border: none;
+				  outline: none;
+				}
+
+				li a:hover, .dropup:hover .dropbtn {
+				  background-color: transparent;
+				  color: #2ca093;
+				}
+
+				.dropup {
+				  position: relative;
+				  display: inline-block;
+				}
+
+				.dropup-content {
+				  display: none;
+				  position: absolute;
+				  background-color: white;
+				  min-width: 160px;
+				  bottom: 50px;
+				  z-index: 1;
+				}
+
+				.dropup-content a {
+				  color: black;
+				  padding: 12px 16px;
+				  text-decoration: none;
+				  display: block;
+				  font-size: 20px;
+				}
+
+				.dropup-content a:hover {background-color: #ccc}
+
+				/*.dropup:hover .dropup-content {
+				  display: block;
+				  font-size: 20px;
+				}*/
+
+				.dropup:hover .dropbtn {
+				  background-color: transparent;
+				}
+				</style>
+
 		<title>Photography</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -14,11 +93,14 @@
 	</head>
 	<body class="is-preload">
 
+
+
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Main -->
 					<section id="main">
+
 
 						<!-- First Row Items -->
 							<div class="items">
@@ -109,16 +191,29 @@
 					</section>
 
 				<!-- Footer -->
+
+
 					<section id="footer">
 						<section>
 							<strong>Interested in purchasing full resolution files or prints?</strong>
 							<br />Email me: <a href="mailto:david.allen.sheppard@outlook.com">david.allen.sheppard@outlook.com</a>
 						</section>
 						<section>
-							<ul class="icons">
-								<li><a href="../index.html" class="icon fa-home"><span class="label">Email</span></a></li>
-								<li><a href="mailto:david.allen.sheppard@outlook.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
+							<ul2>
+								<li class="dropup">
+									<button onclick="hideFunction();" class="dropbtn"><span class="icon fa-bars"></span></button>
+									<div id="menu" class="dropup-content">
+										<a href="../index.html">Home</a>
+										<a href="../resume.html">R&eacutesum&eacute</a>
+										<a href="../index.html#projects">Projects</a>
+										<a href="../latex.html">Excel to LaTeX</a>
+										<a href="index.html">Photography</a>
+									</div>
+								</li>
+								<li><a href="mailto:david.allen.sheppard@outlook.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+								<li><a href="https://www.linkedin.com/in/david-a-sheppard" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="../index.html" class="icon fa-home"><span class="label">Home</span></a></li>
+						  </ul2>
 							<ul class="copyright">
 								<li>Webpage Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
@@ -126,6 +221,8 @@
 					</section>
 
 			</div>
+
+
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -135,5 +232,18 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
+			<script>
+				function hideFunction() {
+  				var x = document.getElementById("menu");
+  				if (x.style.display === "block") {
+    				x.style.display = "none";
+  				} else {
+    				x.style.display = "block";
+  				}
+				}
+			</script>
+
+			/*credit to https://www.w3schools.com/w3css/w3css_dropdowns.asp for the clickable dropdown*/
+
+
 </html>
