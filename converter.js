@@ -182,22 +182,74 @@ function generate() {
 
 function check_text(text, slash){  //account for LaTeX and HTML keywords
     var new_text = "";                         // new string
+    var special_char = false;
     for(j = 0; j < text.length; j++){       // check each char in the inputted string
+        if(text.charAt(j) == '\%' || text.charAt(j) == '$' || text.charAt(j) == '_' || text.charAt(j) == '\&' || text.charAt(j) == '#'){
+            special_char = true;
+        }else{
+            special_char = false;
+        }
+
+    // if there is a special char and user wants it escaped, add a backslash
+        if(special_char && slash == 'Y'){
+            new_text += '\\';
+        }
+
+        // account for <, >, and ~. Then print out the char itself
         switch(text.charAt(j)){
-            case '&':
-                new_text += "\\&";
-                break;
-            case '%':
-                new_text += "\\%";
-                break;
             case '<':
                 new_text += "$&lt;$";
                 break;
             case '>':
                 new_text += "$&gt;$";
                 break;
+            case '~':
+                new_text += "\\sim";
+                break;
+            default:
+                new_text += text.charAt(j);
+        }
+
+
+
+
+/*
+        switch(text.charAt(j)){
+            case '<':
+                new_text += "$&lt;$";
+                break;
+            case '>':
+                new_text += "$&gt;$";
+                break;
+                // if user has chosen to account for special LaTeX characters, put a '\' before them'
+                // special characeters are : %, $, _, &, #
+            case '&':
+                if(slash == 'Y'){
+                    new_text += "\\&";
+                }else {
+                    new_text += text.charAt(j);
+                }
+                break;
+            case '%':
+                if(slash == 'Y'){
+                    new_text += "\\%";
+                }else {
+                    new_text += text.charAt(j);
+                }
+                break;
             case '$':
-                new_text += "\\$";
+                if(slash == 'Y'){
+                    new_text += "\\$";
+                }else {
+                    new_text += text.charAt(j);
+                }
+                break;
+            case '$':
+                if(slash == 'Y'){
+                    new_text += "\\#";
+                }else {
+                    new_text += text.charAt(j);
+                }
                 break;
             case '\\':
                 if(slash == 'Y'){
@@ -208,7 +260,7 @@ function check_text(text, slash){  //account for LaTeX and HTML keywords
                 break;
             default:                                // if not keyword, leave as is
                 new_text += text.charAt(j);
-        }
+        }*/
     }
     return new_text;
 }
