@@ -9,6 +9,7 @@
 	Background color of title box is near line 2550
 	Line 150 added "select" option for LaTeX dropdowns
 	around line 2252 is new table definition
+	around line 176 added box definition
 */
 
 html, body, div, span, applet, object,
@@ -171,6 +172,27 @@ input, select, textarea {
 
 			select::-ms-expand {
 				display: none;
+			}
+
+	/* Box */
+
+		.box {
+			border-radius: 5px;
+			border: solid 2px rgba(0, 0, 0, 0.125);
+			margin-bottom: 2em;
+			padding: 1.5em;
+		}
+
+			.box > :last-child,
+			.box > :last-child > :last-child,
+			.box > :last-child > :last-child > :last-child {
+				margin-bottom: 0;
+			}
+
+			.box.alt {
+				border: 0;
+				border-radius: 0;
+				padding: 0;
 			}
 
 
