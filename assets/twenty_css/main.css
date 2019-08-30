@@ -6,6 +6,8 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
+	Accent color is #83d3c9 or rgb 131, 211, 201
+
 	Background color of title box is near line 2550
 	Line 150 added "select" option for LaTeX dropdowns
 	around line 2252 is new table definition
@@ -177,7 +179,7 @@ input, select, textarea {
 	/* Box */
 
 		.box {
-			border-radius: 5px;
+			/*border-radius: 5px;*/
 			border: solid 2px rgba(0, 0, 0, 0.125);
 			margin-bottom: 2em;
 			padding: 1.5em;
