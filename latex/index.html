@@ -1,10 +1,21 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
-	Solid State by HTML5 UP
+	Twenty by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+
 <style>
+vl {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+
 .latex, .latex sub {
   font-size: 1em;
   vertical-align: 0.25em;
@@ -19,197 +30,223 @@
   margin-right: -0.15em;
   /*font-family: "Times New Roman", Times, serif;*/
 }
+
 </style>
+
+
 <html>
 	<head>
-		<title>LaTeX Table Generator</title>
+		<title>LaTeX Tables</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="../assets/css/latex.css" />
-		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="../assets/twenty_css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/twenty_css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="no-sidebar is-preload">
+		<div id="page-wrapper">
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="../index.html"><span>David Sheppard | </span>Projects</a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="../#">Home</a></li>
+							<li class="submenu">
+								<a href="#">Projects</a>
+								<ul>
+									<li><a href="../better-navigation">Better Navigation</a></li>
+									<li><a href="../smart-sign">Smart Sign</a></li>
+									<li><a href="../dijkstra">Dijkstra's Algorithm</a></li>
+									<li><a href="#">Excel to LaTeX</a></li>
+									<!--<li class="submenu">
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Dolore Sed</a></li>
+											<li><a href="#">Consequat</a></li>
+											<li><a href="#">Lorem Magna</a></li>
+											<li><a href="#">Sed Magna</a></li>
+											<li><a href="#">Ipsum Nisl</a></li>
+										</ul>
+									</li>-->
+								</ul>
+							</li>
+							<li><a href="../#contact" class="button primary">Contact</a></li>
+						</ul>
+					</nav>
+				</header>
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="#"><font color="white">LaTeX TABLE GENERATOR</font></a></h1>
-						<nav>
-							<a href="#menu"><font color="white">Menu</font></a>
-						</nav>
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon solid fa-file-excel"></span>
+						<h2><font face="Times New Roman"><span class="latex">L<sup>A</sup>T<sub>E</sub>X</span></font> TABLE GENERATOR</h2>
+						<p>Converts data pasted from Excel into a LaTeX formatted table</p>
 					</header>
 
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2><font color="black">MENU</font></h2>
-                            <ul class="links">
-                                <li><a href="../"><font color="black"><b>Home</b></font></a></li>
-                                <li><a href="../resume"><font color="black"><b>R&eacute;sum&eacute;</b></font></a></li>
-                                <li><a href="../#projects"><font color="black"><b>Projects</b></font></a></li>
-                                <li><a href="#"><font color="black"><b>Excel to LaTeX</b></font></a></li>
-                                <li><a href="../photography"><font color="black"><b>Photography</b></font></a></li>
-								<li><a href="../#footer"><font color="black"><b>Contact</b></font></a></li>
-                            </ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
+					<!-- One -->
+						<section class="wrapper style4 container">
 
-				<!-- Wrapper -->
-					<section id="wrapper">
-						<header>
-							<div class="inner">
-								<h2><font color="white"><font face="Times New Roman"><span class="latex">L<sup>A</sup>T<sub>E</sub>X</span></font> TABLE GENERATOR</font></h2>
-								<p><font color="white">Converts data pasted from Excel into a LaTeX formatted table<br />Writted by David Sheppard</font></p>
-							</div>
-						</header>
+							<!-- Content -->
+							<div class="content">
+                                <a class="image featured"><img src="../images/excel.jpg" alt="" /></a>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 col-12-medium">
+                                    <p><b>Paste Excel data below and click GENERATE</b></p>
+                                    <p><textarea id="excel" name="excel" style="height:300px;" onclick="change('Copy to Clipboard')"></textarea></p>
+                                    <button onclick="change('Copy to Clipboard'); generate()">Generate</button>
+                                    <button onclick="change('Copy to Clipboard'); clearText('both')">Clear</button>
+                                </div>
+                                <div class="col-6 col-12-medium">
+                                    <p><b>LaTeX table code will appear below</b></p>
+                                    <div id="excel_table"></div>
+                                    <pre><code id="output" style="height:300px"></code></pre>
+                                    <button style="width:250px" id="button_copy" onclick="generate(); change('copied'); copyToClipboard('#output')">Copy to Clipboard</button>
+                                </div>
+                                <div class="col-12 col-10-medium">
+                                    <hr /><h2><b>Options</b></h2>
+                                    <table class="formcontrols">
 
-						<!-- Content -->
-                        <div class="wrapper">
-                            <div class="inner">
-                                <div class="row">
-                                    <div class="col-5 col-10-medium">
-                                        <p><b>Paste Excel data below and click GENERATE</b></p>
-                                        <p><textarea id="excel" name="excel" style="height:300px;" onclick="change('Copy to Clipboard')"></textarea></p>
-                                        <button onclick="change('Copy to Clipboard'); generate()">Generate</button>
-                                        <button onclick="change('Copy to Clipboard'); clearText('both')">Clear</button>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    Add A Caption
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <textarea placeholder="Optional" id="caption_input" name="caption_input"
+                                                style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    Add A Label
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <textarea placeholder="Optional" id="label_input" name="label_input"
+                                                style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    Alignment
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select id="select_alignment" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                    <option value='l'>LEFT</option>
+                                                    <option value='c' selected="selected">CENTER</option>
+                                                    <option value='r'>RIGHT</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    First Row Formatting
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select id="select_first_row" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                    <option value='r' selected="selected">NORMAL</option>
+                                                    <option value='b'>BOLD</option>
+                                                    <option value='i'>ITALIC</option>
+                                                    <option value='u'>UNDERLINED</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    First Column Formatting
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select id="select_first_col" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                    <option value='r' selected="selected">NORMAL</option>
+                                                    <option value='b'>BOLD</option>
+                                                    <option value='i'>ITALIC</option>
+                                                    <option value='u'>UNDERLINED</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    Dividers
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select id="select_dividers" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                    <option value='b' selected="selected">BOTH</option>
+                                                    <option value='r'>ROW ONLY</option>
+                                                    <option value='c'>COLUMN ONLY</option>
+                                                    <option value='n'>NONE</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    Add '\' before #, $, %, _, &amp
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <select id="select_slash" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                    <option value='Y' selected="selected">ON</option>
+                                                    <option value='N'>OFF</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                        </table>
                                     </div>
-                                    <div class="col-5 col-10-medium">
-                                        <p><b>LaTeX table code will appear below</b></p>
-                                        <div id="excel_table"></div>
-                                        <pre><code id="output" style="height:300px"></code></pre>
-                                        <button style="width:300px" id="button_copy" onclick="generate(); change('copied'); copyToClipboard('#output')">Copy to Clipboard</button>
-                                    </div>
-                                    <div class="col-10 col-10-medium">
-                                        <hr /><h2><b>Options</b></h2>
-                                        <table class="formcontrols">
-
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        Add A Caption
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <textarea placeholder="Optional" id="caption_input" name="caption_input"
-                                                    style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        Add A Label
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <textarea placeholder="Optional" id="label_input" name="label_input"
-                                                    style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        Alignment
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <select id="select_alignment" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
-                                                        <option value='l'>LEFT</option>
-                                                        <option value='c' selected="selected">CENTER</option>
-                                                        <option value='r'>RIGHT</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        First Row Formatting
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <select id="select_first_row" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
-                                                        <option value='r' selected="selected">NORMAL</option>
-                                                        <option value='b'>BOLD</option>
-                                                        <option value='i'>ITALIC</option>
-                                                        <option value='u'>UNDERLINED</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        First Column Formatting
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <select id="select_first_col" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
-                                                        <option value='r' selected="selected">NORMAL</option>
-                                                        <option value='b'>BOLD</option>
-                                                        <option value='i'>ITALIC</option>
-                                                        <option value='u'>UNDERLINED</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        Dividers
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <select id="select_dividers" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
-                                                        <option value='b' selected="selected">BOTH</option>
-                                                        <option value='r'>ROW ONLY</option>
-                                                        <option value='c'>COLUMN ONLY</option>
-                                                        <option value='n'>NONE</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <label>
-                                                        Add '\' before #, $, %, _, &amp
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <select id="select_slash" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
-                                                        <option value='Y' selected="selected">ON</option>
-                                                        <option value='N'>OFF</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-
-                                            </table>
-                                        </div>
                                 </div>
 
 
+						</section>
 
-                            </div>
-                        </div>
+				</article>
 
-</section>
+			<!-- Footer -->
+				<footer id="footer">
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
+					<!--<ul class="icons">
+						<li><a href="#" class="icon brands circle fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands circle fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands circle fa-google-plus-g"><span class="label">Google+</span></a></li>
+						<li><a href="#" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon brands circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+					</ul>-->
 
-                            <ul class="copyright">
-                                <li><font color="white">Webpage Design: <a href="http://html5up.net">HTML5 UP</font></li>
-                                <li><font color="white">Images: <a href="http://www.pixabay.com">pixabay</a></font></li>
-                                <li><font color="white">Last Updated: 13 May 2019</font></li>
-                            </ul>
-						</div>
-					</section>
+					<ul class="copyright">
+						<li>Last Updated: August 30, 2019</li><li>Webpage Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Image: <a href="http://pixabay.com">Pixabay</a></li>
+					</ul>
 
-			</div>
+				</footer>
+
+		</div>
 
 		<!-- Scripts -->
+			<script src="../assets/twenty_js/jquery.min.js"></script>
+			<script src="../assets/twenty_js/jquery.dropotron.min.js"></script>
+			<script src="../assets/twenty_js/jquery.scrolly.min.js"></script>
+			<script src="../assets/twenty_js/jquery.scrollgress.min.js"></script>
+			<script src="../assets/twenty_js/jquery.scrollex.min.js"></script>
+			<script src="../assets/twenty_js/browser.min.js"></script>
+			<script src="../assets/twenty_js/breakpoints.min.js"></script>
+			<script src="../assets/twenty_js/util.js"></script>
+			<script src="../assets/twenty_js/main.js"></script>
+
+            <script src="./converter.js"></script>
+
             <script>
                 function copyToClipboard(element) {
                     var text = $(element).clone().find('br').prepend('\r\n').end().text();
@@ -242,14 +279,6 @@
                 }
             </script>
 
-            <script src="./converter.js"></script>
-            <script>generate();</script>
-            <script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/browser.min.js"></script>
-			<script src="../assets/js/breakpoints.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
 
         <!--
         Many thanks to sample code on:
@@ -258,7 +287,6 @@
             https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_text_get
             https://stackoverflow.com/questions/2006468/copy-paste-from-excel-to-a-web-page
             https://stackoverflow.com/questions/1085801/get-selected-value-in-dropdown-list-using-javascript
-        -->
 
 	</body>
 </html>
