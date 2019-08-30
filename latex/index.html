@@ -92,19 +92,25 @@ vl {
                                 <a class="image featured"><img src="../images/excel.jpg" alt="" /></a>
                             </div>
                             <div class="row">
-                                <div class="col-6 col-12-medium">
-                                    <p><b>Paste Excel data below and click GENERATE</b></p>
+                                <div class="col-6 col-12-medium col-12-mobile">
+                                    <p align="center"><b>Paste Excel data below and click GENERATE</b></p>
                                     <p><textarea id="excel" name="excel" style="height:300px;" onclick="change('Copy to Clipboard')"></textarea></p>
-                                    <button onclick="change('Copy to Clipboard'); generate()">Generate</button>
-                                    <button onclick="change('Copy to Clipboard'); clearText('both')">Clear</button>
+                                    <div align="center">
+                                        <button onclick="change('Copy to Clipboard'); generate()" style="width:10em">Generate</button>
+                                        <button onclick="change('Copy to Clipboard'); clearText('both')" style="width:10em">Clear</button>
+                                    </div>
                                 </div>
-                                <div class="col-6 col-12-medium">
-                                    <p><b>LaTeX table code will appear below</b></p>
+                                <div class="col-6 col-12-medium col-12-mobile">
+                                    <p align="center"><b>LaTeX table code will appear below</b></p>
                                     <div id="excel_table"></div>
                                     <pre><code id="output" style="height:300px"></code></pre>
-                                    <button style="width:250px" id="button_copy" onclick="generate(); change('copied'); copyToClipboard('#output')">Copy to Clipboard</button>
+                                    <div align="center">
+                                        <button style="width:20em" id="button_copy" onclick="generate(); change('copied'); copyToClipboard('#output')">Copy to Clipboard</button>
+                                    </div>
                                 </div>
-                                <div class="col-12 col-10-medium">
+
+                                <div class="col-2 col-12-medium col-0-mobile"></div>
+                                <div class="col-8 col-12-medium col-12-mobile">
                                     <hr /><h2><b>Options</b></h2>
                                     <table class="formcontrols">
 
@@ -116,7 +122,7 @@ vl {
                                             </td>
                                             <td>
                                                 <textarea placeholder="Optional" id="caption_input" name="caption_input"
-                                                style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
+                                                style="width: 14em; height: 4em;" onclick="change('Copy to Clipboard')"></textarea>
                                             </td>
                                         </tr>
 
@@ -128,7 +134,7 @@ vl {
                                             </td>
                                             <td>
                                                 <textarea placeholder="Optional" id="label_input" name="label_input"
-                                                style="width: 250px; height:75px;" onclick="change('Copy to Clipboard')"></textarea>
+                                                style="width: 14em; height: 4em;" onclick="change('Copy to Clipboard')"></textarea>
                                             </td>
                                         </tr>
 
@@ -139,7 +145,7 @@ vl {
                                                 </label>
                                             </td>
                                             <td>
-                                                <select id="select_alignment" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                <select id="select_alignment" style="width: 14em; height: 2.5em; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
                                                     <option value='l'>LEFT</option>
                                                     <option value='c' selected="selected">CENTER</option>
                                                     <option value='r'>RIGHT</option>
@@ -154,7 +160,7 @@ vl {
                                                 </label>
                                             </td>
                                             <td>
-                                                <select id="select_first_row" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                <select id="select_first_row" style="width: 14em; height: 2.5em; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
                                                     <option value='r' selected="selected">NORMAL</option>
                                                     <option value='b'>BOLD</option>
                                                     <option value='i'>ITALIC</option>
@@ -169,7 +175,7 @@ vl {
                                                 </label>
                                             </td>
                                             <td>
-                                                <select id="select_first_col" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                <select id="select_first_col" style="width: 14em; height: 2.5em; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
                                                     <option value='r' selected="selected">NORMAL</option>
                                                     <option value='b'>BOLD</option>
                                                     <option value='i'>ITALIC</option>
@@ -184,7 +190,7 @@ vl {
                                                 </label>
                                             </td>
                                             <td>
-                                                <select id="select_dividers" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                <select id="select_dividers" style="width: 14em; height: 2.5em; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
                                                     <option value='b' selected="selected">BOTH</option>
                                                     <option value='r'>ROW ONLY</option>
                                                     <option value='c'>COLUMN ONLY</option>
@@ -199,7 +205,7 @@ vl {
                                                 </label>
                                             </td>
                                             <td>
-                                                <select id="select_slash" style="height:50px; width:250px; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
+                                                <select id="select_slash" style="width: 14em; height: 2.5em; display:inline-block;" onclick="change('Copy to Clipboard'); generate()">
                                                     <option value='Y' selected="selected">ON</option>
                                                     <option value='N'>OFF</option>
                                                 </select>
