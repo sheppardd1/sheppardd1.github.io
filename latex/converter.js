@@ -6,19 +6,19 @@ function generate() {
         numcols = 0;
         numcols_max = 0;
         var row = 0;
-        var x = $('textarea[name=excel]').val();    //x is the user's pasted input
-        var caption = $('textarea[name=caption_input]').val();    //x is the user's pasted input
-        var  label = $('textarea[name=label_input]').val();    //x is the user's pasted input
-        var e = document.getElementById("select_alignment");   //get value from select box for alignment
-        var align = e.options[e.selectedIndex].value;   //align is either r, c, or l
-        e = document.getElementById("select_first_row");   //get value from select box for afirst row style
-        var style_first_row= e.options[e.selectedIndex].value;   //align is either r, b, u, or i (regular, bold, underline, italics)
-        e = document.getElementById("select_first_col");   //get value from select box for afirst row style
-        var style_first_col= e.options[e.selectedIndex].value;   //align is either r, b, u, or i (regular, bold, underline, italics)
-        e = document.getElementById("select_dividers");   //get value from select box for afirst row style
-        var dividers = e.options[e.selectedIndex].value;   //align is either b, r, c, or n (both, rows only, cols only, or none)
-        e = document.getElementById("select_slash");   //get value from select box for afirst row style
-        var slash = e.options[e.selectedIndex].value;   //align is either b, r, c, or n (both, rows only, cols only, or none)
+        var x = $('textarea[name=excel]').val();                    //x is the user's pasted input
+        var caption = $('textarea[name=caption_input]').val();      //x is the user's pasted input
+        var  label = $('textarea[name=label_input]').val();         //x is the user's pasted input
+        var e = document.getElementById("select_alignment");        //get value from select box for alignment
+        var align = e.options[e.selectedIndex].value;               //align is either r, c, or l
+        e = document.getElementById("select_first_row");            //get value from select box for afirst row style
+        var style_first_row= e.options[e.selectedIndex].value;      //align is either r, b, u, or i (regular, bold, underline, italics)
+        e = document.getElementById("select_first_col");            //get value from select box for afirst row style
+        var style_first_col= e.options[e.selectedIndex].value;      //align is either r, b, u, or i (regular, bold, underline, italics)
+        e = document.getElementById("select_dividers");             //get value from select box for afirst row style
+        var dividers = e.options[e.selectedIndex].value;            //align is either b, r, c, or n (both, rows only, cols only, or none)
+        e = document.getElementById("select_slash");                //get value from select box for afirst row style
+        var slash = e.options[e.selectedIndex].value;               //align is either b, r, c, or n (both, rows only, cols only, or none)
 
         if (x.charAt(0) != '') {    //ensure textarea is not empty first
 
@@ -85,9 +85,9 @@ function generate() {
             var i = 0;                                  // index of x
             do {                                        //do conversion for each row until end of document
                 var col = 0;                            // col is compared to the number of columns
-                //do {                                    //do each row
+                //do {                                  //do each row
 
-                    if (row == 0 && style_first_row == 'b') {     //apply boldface to first row if user chooses styled first row
+                    if (row == 0 && style_first_row == 'b') {           //apply boldface to first row if user chooses styled first row
                         table += "\\textbf{ ";
                     }
                     else if (row == 0 && style_first_row == 'i') {     //apply italics to first row if user chooses styled first row
@@ -97,13 +97,13 @@ function generate() {
                         table += "\\underline{ ";
                     }
 
-                    if (style_first_col == 'b' && (style_first_row != style_first_col || row != 0)) {     //apply boldface to first col if user chooses styled first row
+                    if (style_first_col == 'b' && (style_first_row != style_first_col || row != 0)) {           //apply boldface to first col if user chooses styled first row
                         table += "\\textbf{ ";
                     }
-                    else if (style_first_col == 'i' && (style_first_row != style_first_col || row != 0)) {     //apply italics to first col if user chooses styled first row
+                    else if (style_first_col == 'i' && (style_first_row != style_first_col || row != 0)) {      //apply italics to first col if user chooses styled first row
                         table += "\\textit{ ";
                     }
-                    else if (style_first_col == 'u' && (style_first_row != style_first_col || row != 0)) {     //apply underline to first col if user chooses styled first row
+                    else if (style_first_col == 'u' && (style_first_row != style_first_col || row != 0)) {      //apply underline to first col if user chooses styled first row
                         table += "\\underline{ ";
                     }
 
@@ -181,16 +181,16 @@ function generate() {
     }
 
 function check_text(text, slash){  //account for LaTeX and HTML keywords
-    var new_text = "";                         // new string
+    var new_text = "";                  // new string
     var special_char = false;
-    for(j = 0; j < text.length; j++){       // check each char in the inputted string
+    for(j = 0; j < text.length; j++){   // check each char in the inputted string
         if(text.charAt(j) == '\%' || text.charAt(j) == '$' || text.charAt(j) == '_' || text.charAt(j) == '\&' || text.charAt(j) == '#'){
             special_char = true;
         }else{
             special_char = false;
         }
 
-    // if there is a special char and user wants it escaped, add a backslash
+        // if there is a special char and user wants it escaped, add a backslash
         if(special_char && slash == 'Y'){
             new_text += '\\';
         }
