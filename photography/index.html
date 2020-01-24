@@ -211,7 +211,19 @@
 					<section id="footer">
 						<section>
 							<strong>Interested in purchasing full resolution files or prints?</strong>
-							<br />Email me: <a href="mailto:photography@sheppard.page?Subject=I%20really%20like%20your%20photography!" target="_top">photography@sheppard.page</a>
+							<br />Email me: 
+							<!-- using javascript so I don't get spam -->
+							<script language="JavaScript" type="text/javascript">
+								var part1 = "photography";
+								var part2 = Math.pow(2,6);
+								var part3 = String.fromCharCode(part2);
+								var part4 = "sheppard.page";
+								var part5 = part1 + String.fromCharCode(part2) + part4;
+								document.write("<a href=" + "mai" + "lto" + ":" 
+								+ part5 + ">" + part1 + part3 + part4 + "</a>");
+							</script>
+							<!-- in case they don't have javascript, print in plain text -->
+							<noscript>photography [at] sheppard [dot] page</noscript>
 						</section>
 						<section>
 							<ul2>
@@ -225,7 +237,19 @@
 										<a href="../#contact">Contact</a>
 									</div>
 								</li>
-								<li><a href="mailto:photography@sheppard.page?Subject=I%20really%20like%20your%20photography!" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+								<!-- using javascript so I don't get spam -->
+								<li>
+								<script language="JavaScript" type="text/javascript">
+									var part1 = "photography";
+									var part2 = Math.pow(2,6);
+									var part3 = String.fromCharCode(part2);
+									var part4 = "sheppard.page";
+									var part5 = part1 + String.fromCharCode(part2) + part4;
+									var env_icon = "<span class=\"solid icon fa-envelope-o\"></span>";
+									document.write("<a href=" + "mai" + "lto" + ":" 
+									+ part5 + ">"  + env_icon + "</a>");
+								</script></li>
+								<!-- in case they don't have javascript, print in plain text -->
 								<li><a href="https://www.linkedin.com/in/david-a-sheppard" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 								<li><a href="../index.html" class="icon fa-home"><span class="label">Home</span></a></li>
 						  </ul2>
@@ -259,6 +283,7 @@
 			</script>
 
 			<!--credit to https://www.w3schools.com/w3css/w3css_dropdowns.asp for the clickable dropdown*/-->
+			<!-- credit to https://www.heartinternet.uk/blog/15-ways-to-hide-your-email-address/ for email address hiding-->
 
 
 </html>
