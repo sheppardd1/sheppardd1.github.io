@@ -20,7 +20,7 @@ vl {
 
 <html>
 	<head>
-		<title>Dijkstra's Algorithm</title>
+		<title>FARM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/twenty_css/main.css" />
@@ -65,9 +65,9 @@ vl {
 				<article id="main">
 
 					<header class="special container">
-						<span class="icon solid fa-laptop-code"></span>
-						<h2>Dijkstra's Algorithm</h2>
-						<p>An Implementation of the shortest-distance algorithm built in C++ for Windows</p>
+						<span class="icon solid fa-map-marked-alt"></span>
+						<h2>Field Automated Routing Module (FARM)</h2>
+						<p>An Android path tracking application for field management</p>
 					</header>
 
 					<!-- One -->
@@ -75,57 +75,45 @@ vl {
 
 							<!-- Content -->
 							<div class="content">
-                                <a class="image featured"><img src="../images/dijkstra_short.jpg" alt="" /></a>
+                                <a class="image featured"><img src="../images/farm_short.jpg" alt="" /></a>
 
 
                                 <h2>Purpose</h2>
-                                <p>The purpose of Dijkstra's Algorithm is to find the shortest
-                                distance between any two given nodes in a graph. This is very appropriate
-                                for optimizing systems where entering one state from another comes at a cost.</p>
+                                <p>Often, it can be hard for farmers to track their progress when fertilizing or planting a field.
+                                    Unlike during plowing, there are no furrows left behind for the tractor operator to see whether 
+                                    or not they are overlapping with previous paths. This can lead to under- or over-fertilization
+                                    which can cost money or result in inefficient field use. <br/>
+                                    The FARM application looks to solve this. By allowing the user to plot their location over 
+                                    a satellite view of their field, they can be sure that they are properly covering the area. 
+                                    The app allows the user to input the width of their machinery to ensure that the path plotted on the map 
+                                    represents the actual ground covered. Additionally, the user can define the area of their field so 
+                                    that is is highlighted on the map for easy reference. <br />
+                                    Unlike complicated GPS devices and expensive software, the FARM app is over source and free to download and use.
+                                    All you need is an Android smartphone running Android 5.0 (Lollipop) or later. Read below for instructions on how
+                                    to install the app on your device.
+                                </p>
 
-                                <h2>Downloading and Installing the Program</h2>
-                                <p>Download the Windows installer zip file by clicking the button below.
-                                After downloading the zip file, unzip the folder. Then double-click the
-                                "setup" file to begin installation. Follow the directions on the installation
-                                wizard to complete the installation process. </p>
+                                <h2>Downloading and Installing the App (Android Only)</h2>
+                                <p>
+                                    While the FARM app is not available o nthe Google Play store, you can easily download it below.
+                                    Download the APK file by clicking on the button below. Once the executable is downloaded, </p>
 
-                                <h2>Windows Installer</h2>
+                                <h2>Download the App</h2>
                                 <div class="row">
                                     <div class="col-6 col-12-medium">
                                         <ul class="actions">
-                                            <a href="./Dijkstra_Installer.zip" class="button primary">Click Here to Download <font size="+2"><i class="solid icon fa-file-archive"></i></font></a>
+                                            <a href="./FARM.apk" class="button primary">Click Here to Download <font size="+2"><i class="solid icon fa-file-archive"></i></font></a>
                                         </ul>
                                     </div>
                                 </div>
 
                                 <h2>Using the Program</h2>
-                                <p>On startup, the program prompts for names of each node.
-                                    After entering each node name, type "done" to finish entering the names.
-                                    Then, the program will ask the user if they want a digraph
-                                    (where each distance is one-way) or an undirected graph
-                                    (where each distance is two-way). After this, the program
-                                    will prompt the user for the distance between each node.
-                                    To represent no connection between nodes,
-                                    type "i" or "infinity" instead of a number. Once this is finished,
-                                    the program outputs the shortest distance between each node for
-                                    every possible combination of nodes. Additionally, the path
-                                    that must be followed to achieve the shortest distance for
-                                    each case is printed. At the end, the user can choose to
-                                    start over with a different graph (set of nodes) or exit the program.</p>
+                                <p>On startup, </p>
 
-                                    <h2>Top-Level Implementation</h2>
-                                    <p>The graph is implemented as a vector of nodes, where a node is
-                                    a struct defined as follows:</p>
-                                    <pre><code>struct node{
-    vector &ltfloat&gt direct_distance;     // direct_distance[i] is direct distance from current node to node i
-    vector &ltfloat&gt dijkstra_distance;   // dijkstra_distance[i] is shortest distance from current node to node i
-    vector &ltstring&gt dijkstra_path;      // dijkstra_path[i] is the shortest path from current node to node i (as a string)
-    string name;                        // name of the node
-};</code></pre>
 
                                 <h2>Repository</h2>
-                                The entire C++ source code along with a Linux implementation can be found
-                                in <a href="https://github.com/sheppardd1/Dijkstras_Algorithm">this Github repository</a>.
+                                The entire source code along with a Linux implementation can be found
+                                at <a href="https://github.com/sheppardd1/FARM">this Github repository</a>.
 
 						</section>
 
@@ -143,7 +131,7 @@ vl {
 					</ul>-->
 
 					<ul class="copyright">
-						<li>Last Updated: December 24, 2019</li><li>Webpage Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Image: <a href="http://pixabay.com">Pixabay</a></li>
+						<li>Last Updated: April 13, 2020</li><li>Webpage Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Image: <a href="http://pixabay.com">Pixabay</a></li>
 					</ul>
 
 				</footer>
