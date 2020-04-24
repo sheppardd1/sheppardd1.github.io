@@ -10,7 +10,8 @@
 /*
 	Notes: 2ca093 is the color for title panel
 	Heading when in  thumbnail view was commented out at around line 428
-	Sizing changes were made for some borders and labels. Just search for "was originally" to see comments at changes
+    Sizing changes were made for some borders and labels. Just search for "was originally" to see comments at changes
+    Captions were removed in about line 720-730
 */
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -704,7 +705,7 @@ input, select, textarea {
 	.poptrox-popup {
 		background: #1a1f2c;
 		background: rgba(18, 21, 29, 0.9);
-		box-shadow: 0px 0px 0px 10px #fff, 0px 10px 60px 10px rgba(8, 11, 19, 0.55);
+		box-shadow: 0px 0px 0px 5px #fff, 0px 10px 60px 10px rgba(8, 11, 19, 0.55);
 		cursor: default;
 	}
 
@@ -727,10 +728,10 @@ input, select, textarea {
 			background: #1a1f2c;
 			background: rgba(18, 21, 29, 0.85);
 			display: block;
-			width: 100%;
-			line-height: 50px;		/* was originally 75 */
+			width: 0%;              /* was originally 100% */
+			line-height: 0px;		/* was originally 75 */
 			text-align: center;
-			font-size: 1.25em;
+			font-size: 0;           /* was originally 1.25em */
 			color: #fff;
 		}
 
@@ -757,7 +758,7 @@ input, select, textarea {
 			font-weight: normal;
 			text-transform: none !important;
 			width: 150px;
-			height: 65px;		/* was originally 75 */
+			height: 75px;
 			position: absolute;
 			bottom: 0;
 			cursor: pointer;
