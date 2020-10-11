@@ -1,2 +1,0 @@
-# My Website
-This website is based on a few templates from [Pixelarity](https://pixelarity.com). I have a guide about the principles behind making this site at [this link](sheppard.page/about-website).
