@@ -88,23 +88,23 @@ function generate() {
                 //do {                                  //do each row
 
                     if (row == 0 && style_first_row == 'b') {           //apply boldface to first row if user chooses styled first row
-                        table += "\\textbf{ ";
+                        table += "\\textbf{";
                     }
                     else if (row == 0 && style_first_row == 'i') {     //apply italics to first row if user chooses styled first row
-                        table += "\\textit{ ";
+                        table += "\\textit{";
                     }
                     else if (row == 0 && style_first_row == 'u') {     //apply underline to first row if user chooses styled first row
-                        table += "\\underline{ ";
+                        table += "\\underline{";
                     }
 
                     if (style_first_col == 'b' && (style_first_row != style_first_col || row != 0)) {           //apply boldface to first col if user chooses styled first row
-                        table += "\\textbf{ ";
+                        table += "\\textbf{";
                     }
                     else if (style_first_col == 'i' && (style_first_row != style_first_col || row != 0)) {      //apply italics to first col if user chooses styled first row
-                        table += "\\textit{ ";
+                        table += "\\textit{";
                     }
                     else if (style_first_col == 'u' && (style_first_row != style_first_col || row != 0)) {      //apply underline to first col if user chooses styled first row
-                        table += "\\underline{ ";
+                        table += "\\underline{";
                     }
 
                     while (x.charAt(i) != '\n') {       //read in input until end of the line
@@ -116,22 +116,22 @@ function generate() {
                         else {
                             //if on first row && need to style row and col && row and col get different styles and on first col
                             if (row == 0 && style_first_col != 'r' && style_first_row != 'r' && (style_first_col != style_first_row) && col == 0) {
-                                table += " } }";
+                                table += "}}";
                             // else if on first row or first col and it needs styling, add '}'
                             } else if ((row == 0 && style_first_row != 'r') || (col == 0 && style_first_col != 'r')) {
-                                table += " }";
+                                table += "}";
                             }
 
                             table += " & ";     //latex divider for columns
 
                             if (row == 0 && style_first_row== 'b') {
-                                table += "\\textbf{ ";
+                                table += "\\textbf{";
                             }
                             else if (row == 0 && style_first_row== 'i') {     //apply boldface to first row if user chooses styled first row
-                                table += "\\textit{ ";
+                                table += "\\textit{";
                             }
                             else if (row == 0 && style_first_row== 'u') {     //apply boldface to first row if user chooses styled first row
-                                table += "\\underline{ ";
+                                table += "\\underline{";
                             }
                             col++; //increment col to read in each column
                         }
@@ -139,16 +139,16 @@ function generate() {
                     }   //end while not at end of row
 
                     if (row == 0 && style_first_row != 'r') {
-                        table += " }";
+                        table += "}";
                     }
 
                     if (col == 0 && style_first_col != 'r' && numcols_max == 1 && ((style_first_col != style_first_row) || row != 0)) {
-                        table += " }";
+                        table += "}";
                     }
 
                     while (col < numcols_max - 1) {
                         if (col == 0 && ((style_first_col != 'r' )|| (row == 0 && style_first_row != 'r'))) {   //if only 1st col has value and need to stylize, add ending '}'
-                            table += " }";
+                            table += "}";
                         }
                         table += " & ";
                         ++col;
