@@ -934,7 +934,7 @@
 				display: block;
 				margin: 0 auto;
 				border-radius: 100%;
-				box-shadow: 0 0 0 1em #ffffff;
+				box-shadow: 0 0 0 0.5em #ffffff;
                 width: 100%;
 			}
 
@@ -945,7 +945,7 @@
 				top: 50%;
 				left: -3em;
 				width: calc(100% + 6em);
-				height: 10px;
+				height: 2px;
 				z-index: -1;
 				background: #c8cccf;
 			}
